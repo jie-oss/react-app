@@ -1,9 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 const HomePage = lazy(() => import('../pages/home'));
