@@ -5,6 +5,7 @@ import { IntlProvider } from "react-intl";
 import "./common/css/index.less";
 import zh from "./language/zh";
 import en from "./language/en";
+import "./api/mock"
 
 const lang = 'zh'
 

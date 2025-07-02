@@ -1,30 +1,33 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "@/common/css/login.less";
+import "../common/css/login.less";
 import type { FormProps } from 'antd';
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, message } from 'antd';
 import { FormattedMessage } from "react-intl";
+import { login } from "../api/api";
+import { setStorage } from "../lib/utils";
 
 type FieldType = {
-    username?: string;
-    password?: string;
-};
-
-const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
-    console.log('Success:', values);
-};
-
-const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    username: string;
+    password: string;
 };
 
 const LoginPage = () => {
     const navigate = useNavigate();
-    const handleLogin = () => {
-        localStorage.setItem('token', 'auth');
-        navigate('/home');
+    const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
+        login(values).then((res: any) => {
+            if (res.code == 200) {
+                setStorage('token', res.data.token);
+                setStorage('menuData',res.data.menuData);
+                navigate('/home');
+            } else {
+                message.error(res.message || '账户名或密码错误');
+            }
+        })
     };
-
+    const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
+        console.log('Failed:', errorInfo);
+    };
     return (
         <>
             <div className="login-wrapper">
