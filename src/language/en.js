@@ -4,5 +4,5 @@ export default {
     Password: 'Password',
     userMessage: 'Please input your username!',
     passwordMessage: 'Please input your password!',
-    submit: 'Submit'
+    submit: 'Login'
 }
