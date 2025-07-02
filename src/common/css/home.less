@@ -1,0 +1,199 @@
+@import './common.less';
+.home-wrapper{
+  .home-header{
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,21,41,.08);
+    height: 50px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    .home-operator{
+      padding: 0 15px;
+      height: 50px;
+      .home-operator-icon{
+        font-size: 20px;
+        color: @black;
+      }
+    }
+  }
+  /* 路由动画相关样式 */
+  .route-enter, .route-appear {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+
+  .route-enter.route-enter-active, .route-appear.route-appear-active {
+    opacity: 1;
+    transition: all 300ms;
+    transform: translateX(0);
+  }
+
+  .route-exit {
+    opacity: 0;
+  }
+
+  .route-exit.route-exit-active {
+    opacity: 0;
+  }
+
+  .guide{
+    padding: 20px;
+    .guide-tip{
+      padding: 8px 24px;
+      border-radius: 2px;
+      line-height: 32px;
+      font-size: 16px;
+      color: @normal-black;
+      background: #fff;
+      margin-bottom: 20px;
+    }
+  }
+
+  .home-bread{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    .ant-breadcrumb > span:not(:last-child){
+      &:hover{
+        cursor: pointer;
+        color:#1890ff
+      }
+    }
+  }
+
+  .home-dropdown{
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+    &:hover{
+      background: rgba(0, 0, 0, 0.025);
+    }
+    .avator-icon{
+      position: absolute;
+      bottom: 4px;
+      right: -10px;
+      font-size: 12px;
+    }
+  }
+
+  .normal-dropdown{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+    &:hover{
+      background: rgba(0, 0, 0, 0.025);
+    }
+  }
+
+  .language-dropdown{
+    height: 50px;
+    padding: 0 8px;
+    .icon{
+      font-size: 20px;
+    }
+  }
+
+  .statistics-wrapper{
+    .statistics{
+      background: #fff;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      justify-content: space-between;
+      .statistics-icon{
+        width: 80px;
+        height: 80px;
+        .icon{
+          font-size: 60px;
+        }
+      }
+      .statistics-show{
+        flex: 1;
+        text-align: right;
+        font-weight: 700;
+        color: #666;
+        font-size: 20px;
+        .statistics-title{
+          margin-bottom: 8px;
+          color: rgba(0, 0, 0, 0.45);
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .marginBot{
+    margin-bottom: 40px;
+  }
+
+  .chartWrapper{
+    position: relative;
+    margin-bottom: 40px;
+    height: 370px;
+  }
+
+  .line-charts{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+  }
+
+  .todo-list{
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    .main{
+      border-top: 1px solid @border-color;
+      .list-wrapper{
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        padding-left: 15px;
+        border-bottom: 1px solid @border-color;
+      }
+      .list{
+        font-size: 14px;
+        color: #4d4d4d;
+        font-weight: 500;
+        transition: color 0.4s;
+        &.delete-line{
+          color: #d9d9d9;
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+
+  .todo-footer{
+    padding: 0 12px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    &::before{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: 40px;
+      content: '';
+      overflow: hidden;
+      box-sizing: inherit;
+      box-shadow: 0 1px 1px rgba(0,0,0,.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0,0,0,.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0,0,0,.2);
+    }
+  }
+}

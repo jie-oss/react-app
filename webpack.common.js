@@ -1,6 +1,9 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // 修正这里
+const webpackbar = require('webpackbar');
+
+const devMode = process.env.NODE_ENV === 'development';
 
 module.exports = {
     entry: {
@@ -103,6 +106,11 @@ module.exports = {
                 minifyURLs: true
             }
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new webpackbar({
+            name: devMode ? 'Starting' : 'Building',
+            color: '#61dafb',
+            compiledIn: false,
+        })
     ]
 };
