@@ -2,9 +2,7 @@ import React from "react";
 
 const homePage = () => {
     return (
-        <>
-            <h3>首页</h3>
-        </>
+        <div>Home</div>
     )
 }
 

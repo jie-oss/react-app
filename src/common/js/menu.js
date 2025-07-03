@@ -3,7 +3,7 @@ export default {
     {
         "breadcrumbName":"index",
         "icon":"BankOutlined",
-        "path":"/index"
+        "path":"/home"
     },
     {
         "breadcrumbName":"doc",
