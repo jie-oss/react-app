@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu } from 'antd';
-import { getStorage } from '../lib/utils';
+import { getStorage, setStorage } from '../lib/utils';
 import type { MenuProps } from 'antd';
 import { getIcon } from '../lib/utils';
 import { FormattedMessage } from 'react-intl';
@@ -59,8 +59,9 @@ const LeftMenu = () => {
 
     const onClick: MenuProps['onClick'] = (e) => {
         const path = findPathByKey(items, e.key);
+        const token = getStorage('token');
         if (path && path !== location.pathname) {
-            navigate(path);
+            token ? navigate(path) : navigate('/login');
         }
     };
 

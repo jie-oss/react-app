@@ -13,13 +13,13 @@ type FieldType = {
 };
 
 const LoginPage = () => {
-    const navigate = useNavigate();
     const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
         login(values).then((res: any) => {
+            debugger
             if (res.code == 200) {
                 setStorage('token', res.data.token);
                 setStorage('menuData',res.data.menuData);
-                navigate('/home');
+                 window.location.href = '/home'
             } else {
                 message.error(res.message || '账户名或密码错误');
             }

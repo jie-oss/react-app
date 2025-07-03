@@ -1,5 +1,5 @@
 export default {
-  "admin": [
+  "Admin": [
     {
         "breadcrumbName":"index",
         "icon":"BankOutlined",
@@ -31,63 +31,12 @@ export default {
             }
         ]
     },
-    {
-        "breadcrumbName": "routeTitle",
-        "path":"/child",
-        "children":[
-            {
-                "breadcrumbName":"route1",
-                "path":"routerTest1",
-                "icon":"SendOutlined",
-                "children": [
-                    {
-                        "breadcrumbName":"route11",
-                        "path":"routerTest11",
-                        "icon":"SendOutlined"
-                    },
-                    {
-                        "breadcrumbName":"route12",
-                        "path":"routerTest12",
-                        "icon":"SendOutlined",
-                        "children": [
-                            {
-                                "breadcrumbName":"route121",
-                                "path":"routerTest121",
-                                "icon":"SendOutlined"
-                                
-                            },
-                            {
-                                "breadcrumbName":"route122",
-                                "path":"routerTest122",
-                                "icon":"SendOutlined"
-                            }
-                        ]
-                    },
-                    {
-                        "breadcrumbName":"route13",
-                        "path":"routerTest13",
-                        "icon":"SendOutlined"
-                    }
-                ]
-            },
-            {
-                "breadcrumbName":"route2",
-                "path":"routerTest2",
-                "icon":"SendOutlined"
-            }
-        ]
-    }
   ],
-  "editor": [
+  "User": [
     {
         "breadcrumbName":"index",
         "icon":"BankOutlined",
-        "path":"/index"
-    },
-    {
-        "breadcrumbName":"doc",
-        "icon":"FileTextOutlined",
-        "path":"/doc"
+        "path":"/home"
     },
     {
         "breadcrumbName":"guide",
@@ -99,74 +48,16 @@ export default {
         "icon":"PropertySafetyOutlined",
         "path":"/authority",
         "children":[
-          {
-              "breadcrumbName":"pagePermission",
-              "path":"pageAuthority"
-          }
-      ]
-    },
-    {
-        "breadcrumbName": "routeTitle",
-        "path":"/child",
-        "children":[
             {
-                "breadcrumbName":"route1",
-                "path":"/routerTest1",
-                "icon":"SendOutlined",
-                "children": [
-                    {
-                        "breadcrumbName":"route11",
-                        "path":"routerTest11",
-                        "icon":"SendOutlined"
-                    },
-                    {
-                        "breadcrumbName":"route12",
-                        "path":"/routerTest12",
-                        "icon":"SendOutlined",
-                        "children": [
-                            {
-                                "breadcrumbName":"route121",
-                                "path":"routerTest121",
-                                "icon":"SendOutlined"
-                                
-                            },
-                            {
-                                "breadcrumbName":"route122",
-                                "path":"routerTest122",
-                                "icon":"SendOutlined"
-                            }
-                        ]
-                    },
-                    {
-                        "breadcrumbName":"route13",
-                        "path":"routerTest13",
-                        "icon":"SendOutlined"
-                    }
-                ]
+                "breadcrumbName":"pagePermission",
+                "path":"pageAuthority"
             },
             {
-                "breadcrumbName":"route2",
-                "path":"routerTest2",
+                "breadcrumbName":"rolePermission",
+                "path":"characterAuthority",
                 "icon":"SendOutlined"
             }
         ]
-    }
+    },
   ],
-  "visitor": [
-    {
-        "breadcrumbName":"index",
-        "icon":"BankOutlined",
-        "path":"/index"
-    },
-    {
-        "breadcrumbName":"doc",
-        "icon":"FileTextOutlined",
-        "path":"/doc"
-    },
-    {
-        "breadcrumbName":"guide",
-        "icon":"SendOutlined",
-        "path":"/guide"
-    },
-  ]
 }
