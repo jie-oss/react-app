@@ -16,8 +16,10 @@ export default () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [form] = Form.useForm();
     const [data, setData] = useState<DataType[]>([]);
+    const [filteredData, setFilteredData] = useState<DataType[]>([]);
     const [editRecord, setEditRecord] = useState<DataType | null>(null);
     const [loading, setLoading] = useState(false);
+    const [search, setSearch] = useState('');
 
     // 查询用户列表
     const fetchData = async () => {
@@ -30,6 +32,16 @@ export default () => {
     useEffect(() => {
         fetchData();
     }, []);
+
+    useEffect(() => {
+        if (search.trim()) {
+            setFilteredData(
+                data.filter(item => item.username.toLowerCase().includes(search.trim().toLowerCase()))
+            );
+        } else {
+            setFilteredData(data);
+        }
+    }, [data, search]);
 
     const showModal = (record?: DataType) => {
         setIsModalOpen(true);
@@ -74,10 +86,30 @@ export default () => {
     };
 
     const columns: TableProps<DataType>['columns'] = [
-        { title: 'Username', dataIndex: 'username', key: 'username' },
-        { title: 'Email', dataIndex: 'email', key: 'email' },
-        { title: 'Role', dataIndex: 'role', key: 'role' },
-        { title: 'Status', dataIndex: 'status', key: 'status' },
+        {
+            title: 'Username',
+            dataIndex: 'username',
+            key: 'username',
+            sorter: (a, b) => a.username.localeCompare(b.username),
+        },
+        {
+            title: 'Email',
+            dataIndex: 'email',
+            key: 'email',
+            sorter: (a, b) => a.email.localeCompare(b.email),
+        },
+        {
+            title: 'Role',
+            dataIndex: 'role',
+            key: 'role',
+            sorter: (a, b) => a.role.localeCompare(b.role),
+        },
+        {
+            title: 'Status',
+            dataIndex: 'status',
+            key: 'status',
+            sorter: (a, b) => a.status.localeCompare(b.status),
+        },
         {
             title: 'Action',
             key: 'action',
@@ -94,12 +126,21 @@ export default () => {
 
     return (
         <>
-            <Button type="primary" style={{ margin: '10px' }} onClick={() => showModal()}>+Add</Button>
+            <Space style={{ margin: '10px' }}>
+                <Button type="primary" onClick={() => showModal()}>+Add</Button>
+                <Input.Search
+                    placeholder="按用户名搜索"
+                    allowClear
+                    onSearch={setSearch}
+                    onChange={e => setSearch(e.target.value)}
+                    style={{ width: 200 }}
+                />
+            </Space>
             <Table<DataType>
                 columns={columns}
-                dataSource={data}
+                dataSource={filteredData}
                 loading={loading}
-                pagination={data.length > 5 ? { pageSize: 5 } : false}
+                pagination={ { pageSize: 5 } }
                 rowKey="key"
             />
             <Modal
