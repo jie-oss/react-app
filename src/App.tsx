@@ -6,23 +6,23 @@ import "./common/css/index.less";
 import zh from "./language/zh";
 import en from "./language/en";
 import "./api/mock"
-import { Layout } from "antd";
 import "./common/css/home.less";
-import LeftMenu from "./component/menu";
+import { AliveScope } from "react-activation";
 
 const lang = 'zh'
 
 const messages = { zh, en }[lang]
 
-const { Header, Footer, Sider, Content } = Layout;
 
 
 function App() {
   return (
     <IntlProvider messages={messages} locale="zh">
-      <Router>
-        <RouterConfig />
-      </Router>
+      <AliveScope>
+        <Router>
+          <RouterConfig />
+        </Router>
+      </AliveScope>
     </IntlProvider>
   );
 }

@@ -22,11 +22,11 @@ export default {
         "children":[
             {
                 "breadcrumbName":"pagePermission",
-                "path":"/pageAuthority"
+                "path":"pageAuthority"
             },
             {
                 "breadcrumbName":"rolePermission",
-                "path":"/characterAuthority",
+                "path":"characterAuthority",
                 "icon":"SendOutlined"
             }
         ]
@@ -37,42 +37,42 @@ export default {
         "children":[
             {
                 "breadcrumbName":"route1",
-                "path":"/routerTest1",
+                "path":"routerTest1",
                 "icon":"SendOutlined",
                 "children": [
                     {
                         "breadcrumbName":"route11",
-                        "path":"/routerTest11",
+                        "path":"routerTest11",
                         "icon":"SendOutlined"
                     },
                     {
                         "breadcrumbName":"route12",
-                        "path":"/routerTest12",
+                        "path":"routerTest12",
                         "icon":"SendOutlined",
                         "children": [
                             {
                                 "breadcrumbName":"route121",
-                                "path":"/routerTest121",
+                                "path":"routerTest121",
                                 "icon":"SendOutlined"
                                 
                             },
                             {
                                 "breadcrumbName":"route122",
-                                "path":"/routerTest122",
+                                "path":"routerTest122",
                                 "icon":"SendOutlined"
                             }
                         ]
                     },
                     {
                         "breadcrumbName":"route13",
-                        "path":"/routerTest13",
+                        "path":"routerTest13",
                         "icon":"SendOutlined"
                     }
                 ]
             },
             {
                 "breadcrumbName":"route2",
-                "path":"/routerTest2",
+                "path":"routerTest2",
                 "icon":"SendOutlined"
             }
         ]
@@ -101,7 +101,7 @@ export default {
         "children":[
           {
               "breadcrumbName":"pagePermission",
-              "path":"/pageAuthority"
+              "path":"pageAuthority"
           }
       ]
     },
@@ -116,7 +116,7 @@ export default {
                 "children": [
                     {
                         "breadcrumbName":"route11",
-                        "path":"/routerTest11",
+                        "path":"routerTest11",
                         "icon":"SendOutlined"
                     },
                     {
@@ -126,27 +126,27 @@ export default {
                         "children": [
                             {
                                 "breadcrumbName":"route121",
-                                "path":"/routerTest121",
+                                "path":"routerTest121",
                                 "icon":"SendOutlined"
                                 
                             },
                             {
                                 "breadcrumbName":"route122",
-                                "path":"/routerTest122",
+                                "path":"routerTest122",
                                 "icon":"SendOutlined"
                             }
                         ]
                     },
                     {
                         "breadcrumbName":"route13",
-                        "path":"/routerTest13",
+                        "path":"routerTest13",
                         "icon":"SendOutlined"
                     }
                 ]
             },
             {
                 "breadcrumbName":"route2",
-                "path":"/routerTest2",
+                "path":"routerTest2",
                 "icon":"SendOutlined"
             }
         ]

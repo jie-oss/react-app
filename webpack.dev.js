@@ -19,5 +19,6 @@ module.exports = merge(common, {
         path: path.resolve(__dirname, 'dist'),
         clean: true,
         chunkFilename: '[name].chunk.js',
+        publicPath: '/', // 关键：让所有静态资源用绝对路径
     }
 });
