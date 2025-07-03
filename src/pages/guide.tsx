@@ -1,2 +1,4 @@
 import React from 'react';
-export default () => <div>/guide</div>;
+import { FormattedMessage } from 'react-intl';
+
+export default () => <div><FormattedMessage id='guide' /></div>;

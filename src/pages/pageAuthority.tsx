@@ -1,2 +1,3 @@
 import React from 'react';
-export default () => <div>/pageAuthority</div>;
+import { FormattedMessage } from "react-intl";
+export default () => <div><FormattedMessage id='pagePermission' /></div>;

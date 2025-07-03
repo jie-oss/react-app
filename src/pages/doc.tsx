@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Space, Table, Modal, Form, Input, Select, message } from 'antd';
 import type { TableProps } from 'antd';
 import { getUsers, addUser, editUser, deleteUser } from '../api/api';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 interface DataType {
     key: string;
@@ -20,6 +21,7 @@ export default () => {
     const [editRecord, setEditRecord] = useState<DataType | null>(null);
     const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState('');
+    const intl = useIntl();
 
     // 查询用户列表
     const fetchData = async () => {
@@ -59,10 +61,10 @@ export default () => {
             const values = await form.validateFields();
             if (editRecord) {
                 await editUser({ ...editRecord, ...values });
-                message.success('编辑成功');
+                message.success(intl.formatMessage({ id: 'edit-success' }));
             } else {
                 await addUser(values);
-                message.success('新增成功');
+                message.success(intl.formatMessage({ id: 'add-success' }));
             }
             setIsModalOpen(false);
             form.resetFields();
@@ -81,31 +83,31 @@ export default () => {
 
     const handleDelete = async (record: DataType) => {
         await deleteUser({ key: record.key });
-        message.success('删除成功');
+        message.success(intl.formatMessage({ id: 'delete-success' }));
         fetchData();
     };
 
     const columns: TableProps<DataType>['columns'] = [
         {
-            title: 'Username',
+            title: intl.formatMessage({ id: 'Username' }),
             dataIndex: 'username',
             key: 'username',
             sorter: (a, b) => a.username.localeCompare(b.username),
         },
         {
-            title: 'Email',
+            title: intl.formatMessage({ id: 'Email' }),
             dataIndex: 'email',
             key: 'email',
             sorter: (a, b) => a.email.localeCompare(b.email),
         },
         {
-            title: 'Role',
+            title: intl.formatMessage({ id: 'Role' }),
             dataIndex: 'role',
             key: 'role',
             sorter: (a, b) => a.role.localeCompare(b.role),
         },
         {
-            title: 'Status',
+            title: intl.formatMessage({ id: 'Status' }),
             dataIndex: 'status',
             key: 'status',
             sorter: (a, b) => a.status.localeCompare(b.status),
@@ -116,8 +118,8 @@ export default () => {
             render: (_, record) => (
                 record.key == '1' ? null : (
                     <Space size="middle">
-                        <a key="edit" onClick={() => showModal(record)}>Edit</a>
-                        <a key="delete" onClick={() => handleDelete(record)}>Delete</a>
+                        <a key="edit" onClick={() => showModal(record)}>{intl.formatMessage({ id: 'edit' })}</a>
+                        <a key="delete" onClick={() => handleDelete(record)}>{intl.formatMessage({ id: 'delete' })}</a>
                     </Space>
                 )
             ),
@@ -127,9 +129,9 @@ export default () => {
     return (
         <>
             <Space style={{ margin: '10px' }}>
-                <Button type="primary" onClick={() => showModal()}>+Add</Button>
+                <Button type="primary" onClick={() => showModal()}>+{intl.formatMessage({ id: 'add' })}</Button>
                 <Input.Search
-                    placeholder="按用户名搜索"
+                    placeholder={intl.formatMessage({ id: 'serch' })}
                     allowClear
                     onSearch={setSearch}
                     onChange={e => setSearch(e.target.value)}
@@ -140,11 +142,12 @@ export default () => {
                 columns={columns}
                 dataSource={filteredData}
                 loading={loading}
-                pagination={ { pageSize: 5 } }
+                pagination={{ pageSize: 5 }}
                 rowKey="key"
+                showSorterTooltip={false}
             />
             <Modal
-                title={editRecord ? "编辑" : "新增"}
+                title={editRecord ? intl.formatMessage({ id: 'edit' }) : intl.formatMessage({ id: 'add' })}
                 open={isModalOpen}
                 onOk={handleOk}
                 onCancel={handleCancel}
@@ -152,33 +155,33 @@ export default () => {
             >
                 <Form form={form} layout="vertical">
                     <Form.Item
-                        label="Username"
+                        label={intl.formatMessage({ id: 'Username' })}
                         name="username"
-                        rules={[{ required: true, message: '请输入姓名' }]}
+                        rules={[{ required: true, message: intl.formatMessage({ id: 'rule1' }) }]}
                     >
                         <Input />
                     </Form.Item>
                     <Form.Item
-                        label="Email"
+                        label={intl.formatMessage({ id: 'Email' })}
                         name="email"
                         rules={[
-                            { required: true, message: '请输入邮箱' },
-                            { type: 'email', message: '邮箱格式不正确' }
+                            { required: true, message: intl.formatMessage({ id: 'rule2' }) },
+                            { type: 'email', message: intl.formatMessage({ id: 'rule3' }) }
                         ]}
                     >
                         <Input />
                     </Form.Item>
                     <Form.Item
-                        label="Password"
+                        label={intl.formatMessage({ id: 'Password' })}
                         name="password"
-                        rules={[{ required: true, message: '请输入密码' }]}
+                        rules={[{ required: true, message: intl.formatMessage({ id: 'rule4' }) }]}
                     >
                         <Input.Password />
                     </Form.Item>
                     <Form.Item
-                        label="Role"
+                        label={intl.formatMessage({ id: 'Role' })}
                         name="role"
-                        rules={[{ required: true, message: '请选择角色' }]}
+                        rules={[{ required: true, message: intl.formatMessage({ id: 'rule5' }) }]}
                     >
                         <Select>
                             <Select.Option value="Admin">Admin</Select.Option>
@@ -186,9 +189,9 @@ export default () => {
                         </Select>
                     </Form.Item>
                     <Form.Item
-                        label="Status"
+                        label={intl.formatMessage({ id: 'Status' })}
                         name="status"
-                        rules={[{ required: true, message: '请选择状态' }]}
+                        rules={[{ required: true, message: intl.formatMessage({ id: 'rule6' }) }]}
                     >
                         <Select>
                             <Select.Option value="Active">Active</Select.Option>

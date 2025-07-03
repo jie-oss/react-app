@@ -1,2 +1,4 @@
 import React from 'react';
-export default () => <div>/characterAuthority</div>;
+import { FormattedMessage } from 'react-intl';
+
+export default () => <div><FormattedMessage id='rolePermission' /></div>;

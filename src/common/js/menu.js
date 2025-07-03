@@ -39,11 +39,6 @@ export default {
         "path":"/home"
     },
     {
-        "breadcrumbName":"guide",
-        "icon":"SendOutlined",
-        "path":"/guide"
-    },
-    {
         "breadcrumbName":"permission",
         "icon":"PropertySafetyOutlined",
         "path":"/authority",
@@ -52,11 +47,6 @@ export default {
                 "breadcrumbName":"pagePermission",
                 "path":"pageAuthority"
             },
-            {
-                "breadcrumbName":"rolePermission",
-                "path":"characterAuthority",
-                "icon":"SendOutlined"
-            }
         ]
     },
   ],

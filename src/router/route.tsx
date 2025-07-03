@@ -101,9 +101,9 @@ const RouterConfig = () => {
             }
           >
             {renderRoutes(menuData)}
-            <Route
+             <Route
               path="*"
-              element={<Navigate to={menuData[0]?.path || '/home'} replace />}
+              element={<Navigate to="/home" replace />}
             />
           </Route>
         </Routes>

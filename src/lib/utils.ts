@@ -4,9 +4,14 @@ export const setStorage = (key: string, value: any = undefined) => {
     return value === undefined ? localStorage.removeItem(key) : localStorage.setItem(key, JSON.stringify(value));
 }
 
-export const getStorage = (key: string) => {
+export function getStorage(key: string) {
     const value = localStorage.getItem(key);
-    return value ? JSON.parse(value) : null;
+    if (value === null) return null;
+    try {
+        return JSON.parse(value);
+    } catch {
+        return value;
+    }
 }
 
 // 工具函数：根据字符串获取 icon 组件

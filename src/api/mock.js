@@ -18,13 +18,11 @@ Mock.mock(/login/, 'post', (options) => {
         ]);
     }
     userDatas = getStorage('userDatas');
-    console.log(userDatas, 'userDatas');
     // 保证 userDatas 一定是数组
     userDatas = Array.isArray(userDatas) ? userDatas : [];
     const index = userDatas.findIndex(item => {
         return item.username == body.username && item.password == body.password;
     });
-    console.log(index, 'index');
     
     if (index !== -1 && Object.keys(menu).includes(userDatas[index].role) && userDatas[index].status === 'Active') {
         return {

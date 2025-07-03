@@ -1,8 +1,9 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
 
 const homePage = () => {
     return (
-        <div>Home</div>
+        <div><FormattedMessage id='index' /></div>
     )
 }
 

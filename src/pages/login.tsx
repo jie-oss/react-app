@@ -15,7 +15,6 @@ type FieldType = {
 const LoginPage = () => {
     const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
         login(values).then((res: any) => {
-            debugger
             if (res.code == 200) {
                 setStorage('token', res.data.token);
                 setStorage('menuData',res.data.menuData);
